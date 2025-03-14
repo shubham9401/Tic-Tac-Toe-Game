@@ -1,0 +1,456 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #a8e6cf, #dcedc1); /* Soft mint green to pastel yellow */
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game {
+  height: 60vmin;
+  width: 60vmin;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5vmin;
+}
+
+.box {
+  height: 18vmin;
+  width: 18vmin;
+  border-radius: 1rem;
+  border: none;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  font-size: 8vmin;
+  color: #ff8b94; /* Soft coral for X/O */
+  background-color: #fff; /* White for contrast */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.2);
+}
+
+#reset-btn, #new-btn {
+  padding: 1rem 2rem;
+  font-size: 1.25rem;
+  background-color: #ff8b94; /* Soft coral */
+  color: #fff;
+  border-radius: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#reset-btn:hover, #new-btn:hover {
+  background-color: #ff6f7e; /* Slightly brighter coral on hover */
+  transform: translateY(-2px);
+}
+
+#msg {
+  color: #333;
+  font-size: 5vmin;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.msg-container {
+  height: 30vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.hide {
+  display: none;
+}
+
+/* Additional Animation */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+.msg-container {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .box {
+      height: 15vmin;
+      width: 15vmin;
+      font-size: 6vmin;
+  }
+
+  #reset-btn, #new-btn {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+  }
+
+  #msg {
+      font-size: 4vmin;
+  }
+}
+/* Add this to your existing CSS */
+.game-info {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #333;
+}
+
+#turn-indicator {
+  font-weight: bold;
+}
+
+#timer {
+  font-size: 1.5rem;
+  color: #ff6f7e;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #5e60ce;        /* Deep purple */
+  --secondary: #64dfdf;      /* Teal */
+  --accent: #ff5a5f;         /* Coral red */
+  --light: #f5f5f5;          /* Off-white */
+  --dark: #2b2d42;           /* Dark blue-gray */
+  --gradient-start: #5e60ce; /* Deep purple */
+  --gradient-mid: #6c63ff;   /* Bright purple */
+  --gradient-end: #64dfdf;   /* Teal */
+  --shadow: rgba(0, 0, 0, 0.15);
+}
+
+body {
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+  background-size: 300% 300%;
+  animation: gradient-shift 15s ease infinite;
+  text-align: center;
+  font-family: 'Poppins', 'Arial', sans-serif;
+  color: var(--dark);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  max-width: 90%;
+  width: 600px;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--light);
+  text-shadow: 2px 2px 4px var(--shadow);
+  margin-bottom: 0.5rem;
+}
+
+.game-info {
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 1.25rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 20px var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+#turn-indicator {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+#timer {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--accent);
+  padding: 0.5rem 1rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 0.75rem;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.game-options {
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 1.25rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 20px var(--shadow);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.game-options label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--dark);
+  cursor: pointer;
+}
+
+#difficulty-select {
+  background-color: var(--light);
+  color: var(--dark);
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--primary);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+.game {
+  height: auto;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 1/1;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.box {
+  aspect-ratio: 1/1;
+  border-radius: 1rem;
+  border: none;
+  box-shadow: 0 8px 16px var(--shadow);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  background-color: rgba(255, 255, 255, 0.85);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px var(--shadow);
+  background-color: white;
+}
+
+.box:disabled {
+  cursor: not-allowed;
+  opacity: 0.95;
+}
+
+/* Style X and O differently */
+.box[innerText="X"] {
+  color: var(--accent);
+}
+
+.box[innerText="O"] {
+  color: var(--secondary);
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+#reset-btn, #new-btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: var(--primary);
+  color: var(--light);
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px var(--shadow);
+}
+
+#reset-btn {
+  background-color: var(--secondary);
+  color: var(--dark);
+}
+
+#reset-btn:hover, #new-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px var(--shadow);
+}
+
+#reset-btn:active, #new-btn:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
+.msg-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(5px);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 15px 30px var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  min-width: 300px;
+}
+
+.msg-container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+#msg {
+  color: var(--primary);
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.hide {
+  display: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, -60%); }
+  to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+.msg-container {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.box:hover {
+  animation: pulse 1s infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .wrapper {
+    gap: 1.5rem;
+  }
+  
+  .title {
+    font-size: 2.25rem;
+  }
+  
+  .game-info {
+    padding: 1rem;
+  }
+  
+  #turn-indicator {
+    font-size: 1.25rem;
+  }
+  
+  #timer {
+    font-size: 1rem;
+  }
+  
+  .box {
+    font-size: 2rem;
+  }
+  
+  #msg {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .wrapper {
+    gap: 1rem;
+  }
+  
+  .title {
+    font-size: 1.75rem;
+  }
+  
+  .game {
+    gap: 0.75rem;
+  }
+  
+  .box {
+    font-size: 1.5rem;
+    border-radius: 0.75rem;
+  }
+  
+  #reset-btn, #new-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+  }
+  
+  .msg-container {
+    padding: 1.5rem;
+    min-width: 250px;
+  }
+  
+  #msg {
+    font-size: 1.25rem;
+  }
+}
