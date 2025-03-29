@@ -6,11 +6,11 @@ let msg = document.querySelector("#msg");
 let turnIndicator = document.querySelector("#turn-indicator");
 let timerDisplay = document.querySelector("#timer");
 
-let turnO = true; // Player O starts first
-let count = 0; // To track draw
-let timeLeft = 10; // Timer starts at 10 seconds
+let turnO = true; 
+let count = 0; 
+let timeLeft = 10; 
 let timer;
-let gameActive = true; // Flag to track if game is active
+let gameActive = true; 
 
 const winPatterns = [
   [0, 1, 2],
@@ -23,14 +23,13 @@ const winPatterns = [
   [6, 7, 8],
 ];
 
-// Function to update the turn indicator
+
 const updateTurnIndicator = () => {
   turnIndicator.textContent = turnO ? "Player O's Turn" : "Player X's Turn";
 };
 
-// Function to start the timer
+
 const startTimer = () => {
-  // Clear any existing timer before starting a new one
   clearInterval(timer);
   timeLeft = 10;
   timerDisplay.textContent = `Time Left: ${timeLeft}s`;
@@ -46,40 +45,35 @@ const startTimer = () => {
     
     if (timeLeft === 0) {
       clearInterval(timer);
-      switchTurn(); // Switch turn if time runs out
+      switchTurn(); 
     }
   }, 1000);
 };
 
-// Function to reset the timer
 const resetTimer = () => {
   clearInterval(timer);
   startTimer();
 };
 
-// Function to stop the timer completely
 const stopTimer = () => {
   clearInterval(timer);
   timerDisplay.textContent = `Game Over`;
 };
 
-// Function to switch turns
 const switchTurn = () => {
   turnO = !turnO;
   updateTurnIndicator();
   resetTimer();
 };
 
-// Function to play sound effects
 const playSound = (soundId) => {
   const sound = document.getElementById(soundId);
   if (sound) {
-    sound.currentTime = 0; // Reset sound to start
+    sound.currentTime = 0;
     sound.play();
   }
 };
 
-// Function to show confetti animation
 const showConfetti = () => {
   if (typeof confetti === 'function') {
     confetti({
@@ -89,8 +83,6 @@ const showConfetti = () => {
     });
   }
 };
-
-// Reset the game
 const resetGame = () => {
   gameActive = true;
   turnO = true;
@@ -101,7 +93,6 @@ const resetGame = () => {
   resetTimer();
 };
 
-// Event listeners for boxes
 boxes.forEach((box) => {
   box.addEventListener("click", () => {
     if (!gameActive || box.innerText !== "") return;
@@ -113,7 +104,7 @@ boxes.forEach((box) => {
     }
     box.disabled = true;
     count++;
-    playSound("click-sound"); // Play click sound
+    playSound("click-sound");
     
     let isWinner = checkWinner();
     
@@ -128,28 +119,26 @@ boxes.forEach((box) => {
       return;
     }
     
-    switchTurn(); // Switch turn after a move
+    switchTurn();
   });
 });
 
-// Function to handle a draw
 const gameDraw = () => {
   gameActive = false;
   msg.innerText = `Game was a Draw.`;
   msgContainer.classList.remove("hide");
   disableBoxes();
-  playSound("draw-sound"); // Play draw sound
+  playSound("draw-sound"); 
   stopTimer();
 };
 
-// Function to disable all boxes
 const disableBoxes = () => {
   for (let box of boxes) {
     box.disabled = true;
   }
 };
 
-// Function to enable all boxes
+
 const enableBoxes = () => {
   for (let box of boxes) {
     box.disabled = false;
@@ -157,18 +146,17 @@ const enableBoxes = () => {
   }
 };
 
-// Function to show the winner
 const showWinner = (winner) => {
   gameActive = false;
   msg.innerText = `Congratulations, Winner is ${winner}`;
   msgContainer.classList.remove("hide");
   disableBoxes();
-  playSound("win-sound"); // Play win sound
-  showConfetti(); // Show confetti animation
-  stopTimer(); // Stop the timer when game is won
+  playSound("win-sound");
+  showConfetti(); 
+  stopTimer(); 
 };
 
-// Function to check for a winner
+
 const checkWinner = () => {
   for (let pattern of winPatterns) {
     let pos1Val = boxes[pattern[0]].innerText;
@@ -185,9 +173,8 @@ const checkWinner = () => {
   return false;
 };
 
-// Event listeners for buttons
+
 newGameBtn.addEventListener("click", resetGame);
 resetBtn.addEventListener("click", resetGame);
 
-// Initialize the game
 resetGame();
