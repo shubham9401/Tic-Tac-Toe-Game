@@ -5,7 +5,7 @@
 }
 
 body {
-  background: linear-gradient(135deg, #a8e6cf, #dcedc1); /* Soft mint green to pastel yellow */
+  background: linear-gradient(135deg, #a8e6cf, #dcedc1); 
   text-align: center;
   font-family: 'Arial', sans-serif;
   color: #333;
@@ -39,8 +39,8 @@ body {
   border: none;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
   font-size: 8vmin;
-  color: #ff8b94; /* Soft coral for X/O */
-  background-color: #fff; /* White for contrast */
+  color: #ff8b94; 
+  background-color: #fff; 
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -52,7 +52,7 @@ body {
 #reset-btn, #new-btn {
   padding: 1rem 2rem;
   font-size: 1.25rem;
-  background-color: #ff8b94; /* Soft coral */
+  background-color: #ff8b94; 
   color: #fff;
   border-radius: 1rem;
   border: none;
@@ -61,7 +61,7 @@ body {
 }
 
 #reset-btn:hover, #new-btn:hover {
-  background-color: #ff6f7e; /* Slightly brighter coral on hover */
+  background-color: #ff6f7e; 
   transform: translateY(-2px);
 }
 
@@ -84,7 +84,6 @@ body {
   display: none;
 }
 
-/* Additional Animation */
 @keyframes fadeIn {
   from {
       opacity: 0;
