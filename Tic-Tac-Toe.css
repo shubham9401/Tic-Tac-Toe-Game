@@ -97,8 +97,6 @@ body {
 .msg-container {
   animation: fadeIn 1s ease-in-out;
 }
-
-/* Responsive Design */
 @media (max-width: 600px) {
   .box {
       height: 15vmin;
@@ -115,7 +113,6 @@ body {
       font-size: 4vmin;
   }
 }
-/* Add this to your existing CSS */
 .game-info {
   margin-bottom: 2rem;
   font-size: 2rem;
@@ -137,14 +134,14 @@ body {
 }
 
 :root {
-  --primary: #5e60ce;        /* Deep purple */
-  --secondary: #64dfdf;      /* Teal */
-  --accent: #ff5a5f;         /* Coral red */
-  --light: #f5f5f5;          /* Off-white */
-  --dark: #2b2d42;           /* Dark blue-gray */
-  --gradient-start: #5e60ce; /* Deep purple */
-  --gradient-mid: #6c63ff;   /* Bright purple */
-  --gradient-end: #64dfdf;   /* Teal */
+  --primary: #5e60ce;        
+  --secondary: #64dfdf;      
+  --accent: #ff5a5f;         
+  --light: #f5f5f5;          
+  --dark: #2b2d42;           
+  --gradient-start: #5e60ce; 
+  --gradient-mid: #6c63ff;   
+  --gradient-end: #64dfdf;  
   --shadow: rgba(0, 0, 0, 0.15);
 }
 
@@ -288,8 +285,6 @@ body {
   cursor: not-allowed;
   opacity: 0.95;
 }
-
-/* Style X and O differently */
 .box[innerText="X"] {
   color: var(--accent);
 }
@@ -371,7 +366,6 @@ body {
   display: none;
 }
 
-/* Animations */
 @keyframes fadeIn {
   from { opacity: 0; transform: translate(-50%, -60%); }
   to { opacity: 1; transform: translate(-50%, -50%); }
@@ -390,8 +384,6 @@ body {
 .box:hover {
   animation: pulse 1s infinite;
 }
-
-/* Responsive Design */
 @media (max-width: 768px) {
   .wrapper {
     gap: 1.5rem;
